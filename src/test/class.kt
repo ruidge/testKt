@@ -11,17 +11,11 @@ open class Person(open val name: String, val age: Int) {
 }
 
 //open才能被继承
-open class Student(val sno: String, val grade: Int, override var name: String, age: Int) : Person(name, age) {
+open class Student(val sno: String = "", val grade: Int = 0, override var name: String = "", age: Int = 0) :
+    Person(name, age) {
     init {
         println("${this.name} : $age")
     }
-
-    constructor(name: String, age: Int) : this("", 0, name, age) {
-    }
-
-    constructor() : this("", 0) {
-    }
-
 }
 
 fun main() {
