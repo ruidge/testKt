@@ -5,7 +5,7 @@ import kotlinx.coroutines.*
 fun main() {
 
     runBlocking(Dispatchers.IO) {
-        println("runBlocking ${Thread.currentThread().name} -----")
+        println("runBlocking start ${Thread.currentThread().name} -----")
 
         val job = launch { // 外层任务，包裹两个协程
 
@@ -29,6 +29,8 @@ fun main() {
         job.cancel() // 将外层任务取消了
 
         delay(2000) // 继续延迟，期望看到GlobalScope能继续运行
+
+        println("runBlocking end ${Thread.currentThread().name} -----")
 
     }
 }
