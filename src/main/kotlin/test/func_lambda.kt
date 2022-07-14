@@ -27,6 +27,11 @@ fun main() {
 //        return@test_lambda2 result
         result
     }
+
+    test_lambda2(1, 2, fun(a: Int, b: Int): Int {
+        return a + b
+    })
+
     test_lambda2(2, 2, fun(a: Int, b: Int): Int {
         val result = a + b
         return result * 2
