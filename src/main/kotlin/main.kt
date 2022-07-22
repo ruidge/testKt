@@ -26,7 +26,7 @@ fun main() {
     user = null
 //    println(user!!.firstName)
     println(user?.firstName)
-    println(user?.firstName?:User("first", "last").lastName)
+    println(user?.firstName ?: User("first", "last").lastName)
     var sss: String? = "sss"
     sss = null
     println(sss as? String)
@@ -35,4 +35,12 @@ fun main() {
 
     println(test.TEST_SCOPE2_FIELD2)
     test.testScopeFunc2()
+
+    println(710 / 300f)
+
+    var subList: MutableList<String>? = mutableListOf<String>("aaa")
+    subList = null
+    var list: MutableList<String> = mutableListOf()
+    list.addAll(subList ?: mutableListOf("111"))
+    println(list)
 }
