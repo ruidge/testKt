@@ -3,7 +3,12 @@ package test
 fun main() {
 
     var userOwner: UserOwner = UserOwner()
-    var result: User? = userOwner.find {
+
+    var result: User? = userOwner.findBy("id")("i11")
+    println(result)
+    result = userOwner.findBy("name")("n12")
+    println(result)
+    result = userOwner.find {
         it.id == "i15"
     }
     println(result)
@@ -11,7 +16,6 @@ fun main() {
         it.name == "n14"
     }
     println(result)
-
 }
 
 data class User(val id: String, val name: String, val age: Int)
@@ -60,6 +64,35 @@ class UserOwner {
             }
         }
         return result
+    }
+
+    fun findBy(filter: String): (String) -> User? {
+        var result: User? = null
+        when (filter) {
+            "id" -> return fun(value: String): User? {
+                var result: User? = null
+                for (user in users) {
+                    if (user.id == value) {
+                        result = user
+                        break
+                    }
+                }
+                return result
+            }
+            "name" -> return { value: String ->
+                var result: User? = null
+                for (user in users) {
+                    if (user.name == value) {
+                        result = user
+                        break
+                    }
+                }
+                result
+            }
+        }
+        return {
+            null
+        }
     }
 
     fun find(filter: (user: User) -> Boolean): User? {

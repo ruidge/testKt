@@ -11,7 +11,8 @@ fun testScopeFunc2(): Unit {
 
 fun main() {
     testS1()
-//    testS2()
+    testS2()
+    testS3()
 }
 
 
@@ -20,15 +21,17 @@ fun main() {
  */
 fun testS1() {
     var a = 1
-    run {
+    var result = run {
         var a = 2
         run {
             var a = 3
             println(a)
         }
         println(a)
+        200
     }
     println(a)
+    println(result)
 }
 
 /**
@@ -46,8 +49,17 @@ fun testS2() {
 //    }
     var b: Int? = 10
     b?.let {
-        b = null
+        b = 20
         println(b)
+        println(it)
+    }
+}
+
+fun testS3() {
+    var list1: MutableList<Int>? = mutableListOf<Int>(1, 2, 3, 4, 5)
+    list1.let {
+        list1?.removeLast()
+        println(list1)
         println(it)
     }
 }

@@ -36,6 +36,11 @@ fun main() {
         val result = a + b
         return result * 2
     })
+
+    test_lambda2(2, 2) { a, b ->
+        a + b
+    }
+
     //函数
     test_lambda2(2, 2, ::add1)
     //拓展函数
