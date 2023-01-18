@@ -26,6 +26,7 @@ fun main() {
     user = null
 //    println(user!!.firstName)
     println(user?.firstName)
+    println(user?.firstName != null)
     println(user?.firstName ?: User("first", "last").lastName)
     var sss: String? = "sss"
     sss = null
