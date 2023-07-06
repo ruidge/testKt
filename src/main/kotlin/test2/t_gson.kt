@@ -21,10 +21,13 @@ fun main() {
 class Obj {
     var name: String? = null
     var age: String? = null
+    //如果下发null,则为null;如果没下发,则为false
+    var isMale: Boolean? = false
 
     //val的不会作为属性,也不会被gson反序列化
     val name1: String
         get() = "${name}1"
+
     //var的会作为属性,会被gson反序列化,不过get的时候会转为别的值,如果get返回自己会死循环
     var name2: String? = null
         get() = "${name}2"
