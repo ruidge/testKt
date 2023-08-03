@@ -44,4 +44,16 @@ fun main() {
     var list: MutableList<String> = mutableListOf()
     list.addAll(subList ?: mutableListOf("111"))
     println(list)
+
+    var boolean1: Boolean = false
+    var boolean2: Boolean = true
+
+    var list2: MutableList<String>? = mutableListOf()
+    list2?.add("1")
+    list2 = null
+
+    println(list2?.size == 1 && list[0].isNotEmpty())
+    println(null == true)
+    println(null == false)
 }
+
